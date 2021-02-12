@@ -1,0 +1,180 @@
+body {
+    background-color: #e9eff4;
+    overflow-x: hidden;
+}
+:focus {
+    outline: -webkit-focus-ring-color auto 0px;
+}
+a:hover{text-decoration: none; color: #fff;}
+ul li{list-style: none;}
+ul{list-style-type: none;}
+
+
+#list-tab{
+    background-color: #3c3f72;
+    height: 100vh;
+    color: #fff;
+}
+.cName {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.release{display: inline-block;
+    position: relative;}
+.hide{visibility: hidden}
+.js--company-item--hidden {
+    display: none;
+}
+      
+/*right content*/
+.top-view {
+    margin-bottom: 50px;
+}
+.bg-light {
+    background-color: #e9eff4 !important;
+}
+.dropdown-menu {
+    left: -67px;
+    min-width: 8rem;}
+#paginat {
+    width: 65px;
+    height: 45px;
+    border: 1px solid #c9dfdd;
+}
+tr {
+    font-size: 12px;
+    text-align: center;
+}
+.table td {
+    padding: 0rem !important;
+    vertical-align: middle !important;
+    border-top: 1px solid #dee2e6;
+}
+.select_wrap{
+    width: 160px;
+    position: relative;
+    user-select: none;
+    margin-top: 10px;
+    margin-left: 0px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  .select_wrap .default_option{
+    background: #fff;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .select_wrap .default_option button{
+    padding: 5px 10px;
+    border: none;
+    background-color: #fff;
+    color: rgb(0, 158, 127);
+  }
+  .select_wrap .default_option button>a{
+    color: rgb(104, 115, 113);
+    margin-left: 5px;
+    -moz-box-align: center;
+    align-items: center;
+    font-family: Lato, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  
+  .select_wrap .default_option:before{
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 10px;
+    height: 10px;
+    border: 5px solid;
+    border-color: transparent transparent rgb(104, 115, 113);
+    transform: rotate(-45deg);
+  }
+  
+  .select_wrap .select_ul{
+    position: absolute;
+    top: 55px;
+    left: -20;
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    display: none;
+    z-index: 99;
+  }
+  
+  .select_wrap .select_ul button{
+    padding: 10px 40px;
+    width: 100%;
+    margin-bottom: 5px;
+    font-family: Lato, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: rgb(13, 17, 54);
+    line-height: 1.2em;
+    white-space: nowrap;
+    border-radius: 6px;
+    transition: all 0.15s ease-in-out 0s;
+    display: flex;
+    -moz-box-align: center;
+    align-items: center;
+    background-color: transparent;
+    border: 0px none;
+    outline: currentcolor none 0px;
+    cursor: pointer;
+  }
+  
+  .select_wrap .select_ul button:first-child:hover{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  
+  .select_wrap .select_ul button:last-child:hover{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .select_wrap .select_ul button:hover{
+    color: rgb(0, 158, 127) !important;
+  }
+  .select_ul button a:hover {
+      color: rgb(0, 158, 127);
+  }
+  .select_ul button a {
+      color: rgb(13, 17, 54);
+      margin-left: 10px;
+  }
+  .select_wrap .option{
+    display: flex;
+    align-items: center;
+  }
+  
+  .select_wrap.active .select_ul{
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    width: 100%;
+    box-shadow: rgba(142, 142, 142, 0.14) 0px 3px 20px;
+    min-width: 200px;
+    top: calc(100% + 15px);
+    z-index: 99;
+    left: -20px;
+  }
+  
+  .select_wrap.active .default_option:before{
+    top: 16px;
+    transform: rotate(-225deg);
+  }
+  .default_option button svg {
+      min-width: 15px;
+      max-width: 20px;
+      max-height: 19px;
+  }
+  .bi.bi-bricks {
+    margin-right: 5px;
+  }  
