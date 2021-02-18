@@ -17,9 +17,10 @@ class CreateItemsTable extends Migration
             $table->increments('id');
             $table->String('name');
             $table->String('product_code');
+            $table->String('particular');
             $table->String('category');
             $table->double('product_price');
-            $table->String('vendor');
+            $table->String('vendor_id');
             $table->timestamps();
         });
     }

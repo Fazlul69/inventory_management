@@ -32,3 +32,13 @@ Route::post('forget-password', 'App\Http\Controllers\Auth\ForgotPasswordControll
 Route::get('reset-password/{token}', 'Auth\ResetPasswordController@getPassword');
 Route::post('reset-password', 'Auth\ResetPasswordController@updatePassword');
 
+//Route::resource('home' ,'App\Http\Controllers\ItemController');
+
+//item
+Route::get('home/create','App\Http\Controllers\ItemController@create')->name('item.create');
+Route::post('home/create','App\Http\Controllers\ItemController@store')->name('item.store');
+
+//purchase
+Route::get('home/purchase','App\Http\Controllers\PurchaseController@index')->name('purchase_pages.index');
+Route::get('home/purchase/create','App\Http\Controllers\PurchaseController@create')->name('purchase.create');
+

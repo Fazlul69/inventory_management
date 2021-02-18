@@ -27,36 +27,37 @@
               </button>
             </div>
             <div class="modal-body">
-              <form action="itemadd.php" method="post">
+              <form action="" method="post">
+              {{csrf_field()}}
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control" name="name" id="name" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+                  <input type="text" class="form-control" name="name" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control" name="product_code" id="product_code"  placeholder="Product Code" aria-label="Username" aria-describedby="basic-addon1">
+                  <input type="text" class="form-control" name="product_code"  placeholder="Product Code" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control" name="particular" id="particular" placeholder="Particular" aria-label="Username" aria-describedby="basic-addon1">
+                  <input type="text" class="form-control" name="particular" placeholder="Particular" aria-label="Username" aria-describedby="basic-addon1">
                    </div>
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control" name="category" id="category" placeholder="Category" aria-label="Username" aria-describedby="basic-addon1">
+                  <input type="text" class="form-control" name="category" placeholder="Category" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">	৳</span>
                   </div>
-                  <input type="text" class="form-control" name="purchase_price" id="purchase_price" placeholder="Purchase Price" aria-label="Username" aria-describedby="basic-addon1">
+                  <input type="text" class="form-control" name="purchase_price"  placeholder="Purchase Price" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
                 <div class="input-group mb-3">
                   <form action="#">
-                    <label for="cars">Choose a Vendor:</label>
-                    <select name="cars" id="cars">
+                    <label for="vendor">Choose a Vendor:</label>
+                    <select name="vendors">
                       <option value="circle">Circle</option>
                       <option value="bsb">BSB</option>
                       <option value="omera">Omera</option>
                     </select>
                   </form>
                 </div>
-                <button type="button" name="Submit" class="btn btn-primary" data-dismiss="modal">Submit</button>
+                <button type="submit" name="submit" class="btn btn-primary" data-dismiss="modal">Submit</button>
               </form>
             </div>
             <div class="modal-footer">
