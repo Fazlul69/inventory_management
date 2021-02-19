@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Vendor;
+use Session;
 class VendorController extends Controller
 {
     /**
@@ -11,6 +12,7 @@ class VendorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         //

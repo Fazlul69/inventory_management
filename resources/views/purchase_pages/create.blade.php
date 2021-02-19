@@ -12,15 +12,15 @@
   </head>
   <body>
     <div class="container">
-        <div class="card">
+        <div class="card" style="margin-top:100px">
             <div class="card-body">
-                <div class="row" style="margin-top:100px">
+                <div class="row" >
                     <div class="col-8">
                         @if(Session::has('success'))
                             <div class="alert alert-success">{{Session::get('success')}}</div>
                         @endif
-                        <form action="{{route('item.store')}}" method="post" enctype="multipart/form-data">
-                            {{csrf_field()}}
+                        <form action="{{route('purchase.store')}}" method="post" enctype="multipart/form-data">
+                            @csrf
                             <div class="form-group">
                                 <input type="text" class="form-control" name="name" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
                             </div>
@@ -42,11 +42,13 @@
                             <div class="form-group">
                                 <label for="vendor">Choose a Vendor:</label>
 
-                                @foreach($vendors as $v)
+                               
                                 <select name="vendor" >
-                                    <option value={{$v->id}}>{{$v->name}}</option>
-                                </select>
+                                @foreach($vendors as $v)
+                                    <option value="{{$v->id}}">{{$v->name}}</option>
                                 @endforeach
+                                </select>
+                              
                             </div>
                             <div class="form-group">
 								<button class="btn btn-success" type="submit">Submit</button>

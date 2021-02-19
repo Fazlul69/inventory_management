@@ -20,8 +20,10 @@ class CreatePurchasesTable extends Migration
             $table->String('particular');
             $table->String('category');
             $table->double('product_price');
-            $table->String('vendor_id');
+            $table->unsignedBigInteger('vendor_id');
             $table->timestamps();
+
+            $table->foreign('vendor_id')->references('id')->on('vendors')->onDelete('cascade');
         });
     }
 

@@ -50,7 +50,7 @@
                         <td>{{$purchase->particular}}</td>
                         <td>{{$purchase->category}}</td>
                         <td>{{$purchase->product_price}}</td>
-                        <td>{{$purchase->vendor}}</td>
+                        <td>{{$purchase->vendor->name}}</td>
                         <td>
                           <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
