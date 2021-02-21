@@ -32,7 +32,7 @@
                       <!-- Purchase End -->
                       <!--vendor-->
                       <div class="company-brands js--company-item js--company-item--hidden backdesign" id="vendor">
-                        
+                        @include('pages.vendor')
                       </div>
                       <!-- vendor end -->
                       <!--Sales-->

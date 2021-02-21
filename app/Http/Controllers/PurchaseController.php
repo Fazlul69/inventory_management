@@ -25,16 +25,17 @@ class PurchaseController extends Controller
 
     public function store(Request $request)
     {
-        print($request->input());
-        // $this->validate($request,[
-        //     'name' => 'required',
-        //     'product_code' => 'required',
-        //     'particular' => 'required',
-        //     'category' => 'required',
-        //     'product_price' => 'required',
-        //     'vendor_id' => 'required',
-        // ]);
-
+       //dump($request->all());
+        $this->validate($request,[
+            'name' => 'required',
+            'product_code' => 'required',
+            'particular' => 'required',
+            'category' => 'required',
+            'product_price' => 'required',
+            'vendor_id' => 'required',
+            'quantity'=> 'required',
+        ]);
+        $purchase = Purchase::create($request->all());
         // $purchases = new Purchase;
         // $purchases->name= $request->input('name');
         // $purchases->product_code= $request->input('product_code');
@@ -44,7 +45,7 @@ class PurchaseController extends Controller
         // $purchases->vendor_id= $request->input('vendor');
         
         // $purchases->save();
-        // Session::flash('success','Data insert successfully');
-        // return redirect(route('purchase_pages.index'));
+        Session::flash('success','Data insert successfully');
+        return redirect(route('purchase_pages.index'));
     }
 }

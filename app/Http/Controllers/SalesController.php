@@ -3,20 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Vendor;
 use Session;
-class VendorController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+use App\Models\Sale;
 
+class SalesController extends Controller
+{
     public function index()
     {
-        $vendors=Vendor::all();
-        return view('vendor_pages.index')->with('vendors',$vendors);
+        $sales=Sale::all();
+        return view('sales_pages.index')->with('sales',$sales);
     }
 
     /**
@@ -26,7 +21,7 @@ class VendorController extends Controller
      */
     public function create()
     {
-        return view('vendor_pages.create');
+        return view('sales_pages.create');
     }
 
     /**
@@ -39,10 +34,14 @@ class VendorController extends Controller
     {
         $this->validate($request,[
             'name' => 'required',
-            'mobile' => 'required',
-            'unpaid' => 'required',
+            'product_code' => 'required',
+            'particular' => 'required',
+            'category' => 'required',
+            'product_price' => 'required',
+            'quantity'=> 'required',
+            'customer_info' => 'required',
         ]);
-        $vendor = Vendor::create($request->all());
+        $sales = Sale::create($request->all());
         
         // $purchases->save();
         Session::flash('success','Data insert successfully');

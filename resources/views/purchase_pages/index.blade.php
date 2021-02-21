@@ -18,10 +18,10 @@
                       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                     
-
+<!-- 
                     <a href="{{route('purchase.create')}}" type="button" class="btn btn-primary" >
                       Add New
-                    </a>
+                    </a> -->
 
                   
                   </nav>
@@ -36,6 +36,7 @@
                         <th scope="col">Product Code</th>
                         <th scope="col">Particular</th>
                         <th scope="col">Category</th>
+                        <th scope="col">Quantity</th>
                         <th scope="col">Purchase Price (TK)</th>
                         <th scope="col">Vendor</th>
                         <th scope="col">Action</th>
@@ -49,6 +50,7 @@
                         <td>{{$purchase->product_code}}</td>
                         <td>{{$purchase->particular}}</td>
                         <td>{{$purchase->category}}</td>
+                        <td>{{$purchase->quantity}}</td>
                         <td>{{$purchase->product_price}}</td>
                         <td>{{$purchase->vendor->name}}</td>
                         <td>

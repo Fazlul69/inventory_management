@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Vendor extends Model
 {
     
-    protected $fillable = ['id','name'];
+    protected $fillable = ['name','email','mobile','unpaid'];
 
     public function purchasecall()
     {
