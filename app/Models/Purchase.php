@@ -12,6 +12,10 @@ class Purchase extends Model
     function vendor(){
 
         return $this->belongsTo(Vendor::class);
+    }
 
+    public function itemCall()
+    {
+        return $this->hasMany(Item::class);
     }
 }

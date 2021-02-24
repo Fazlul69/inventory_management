@@ -26,5 +26,16 @@ class Item extends Model
         return $this->attributes['vendors'] = json_decode($value);
 
     }
+
+    function purchase(){
+
+        return $this->belongsTo(Purchase::class);
+
+    }
+    function sale(){
+
+        return $this->belongsTo(Sale::class);
+
+    }
 }
 

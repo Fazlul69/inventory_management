@@ -42,12 +42,12 @@
       @foreach($sales as $sale)
         <tr>
           <td>{{$sale->id}}</td>
-          <td>{{$sale->product_code}}</td>
-          <td>{{$sale->name}}</td>
-          <td>{{$sale->particular}}</td>
-          <td>{{$sale->category}}</td>
-          <td>{{$sale->quantity}}</td>
-          <td>{{$sale->product_price}}</td>
+          <td>{{$sale->s_product_code}}</td>
+          <td>{{$sale->s_product_name}}</td>
+          <td>{{$sale->s_product_particular}}</td>
+          <td>{{$sale->s_product_category}}</td>
+          <td>{{$sale->s_quantity}}</td>
+          <td>{{$sale->s_product_price}}</td>
           <td>{{$sale->customer_info}}</td>
           <td>
             <div class="dropdown">

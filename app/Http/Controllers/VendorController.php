@@ -46,7 +46,7 @@ class VendorController extends Controller
         
         // $purchases->save();
         Session::flash('success','Data insert successfully');
-        return redirect(route('home'));
+        return redirect(route('vendor_pages.index'));
     }
 
     /**

@@ -20,7 +20,9 @@ class CreateItemsTable extends Migration
             $table->String('particular');
             $table->String('category');
             $table->double('product_price');
-            $table->String('vendor_id');
+            $table->bigInteger('purchase_id');
+            $table->bigInteger('sale_id');
+           // $table->foreign('purchase_id')->references('id')->on('purchases')->onDelete('cascade');
             $table->timestamps();
         });
     }

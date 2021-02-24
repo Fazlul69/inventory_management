@@ -21,25 +21,25 @@
                         <form action="{{route('sales.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
-                                <input type="text" class="form-control" name="name" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" name="s_product_name" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="product_code"  placeholder="Product Code" aria-label="Username" aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" name="s_product_code"  placeholder="Product Code" aria-label="Username" aria-describedby="basic-addon1">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="particular" placeholder="Particular" aria-label="Username" aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" name="s_product_particular" placeholder="Particular" aria-label="Username" aria-describedby="basic-addon1">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="category" placeholder="Category" aria-label="Username" aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" name="s_product_category" placeholder="Category" aria-label="Username" aria-describedby="basic-addon1">
                             </div>
                             <div class="form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">	৳</span>
                                 </div>
-                                <input type="text" class="form-control" name="product_price"  placeholder="Purchase Price" aria-label="Username" aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" name="s_product_price"  placeholder="Purchase Price" aria-label="Username" aria-describedby="basic-addon1">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="quantity" placeholder="Quantity" aria-label="Username" aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" name="s_quantity" placeholder="Quantity" aria-label="Username" aria-describedby="basic-addon1">
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" name="customer_info" placeholder="Customer Information" aria-label="Username" aria-describedby="basic-addon1">

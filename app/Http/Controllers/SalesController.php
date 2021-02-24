@@ -33,19 +33,19 @@ class SalesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name' => 'required',
-            'product_code' => 'required',
-            'particular' => 'required',
-            'category' => 'required',
-            'product_price' => 'required',
-            'quantity'=> 'required',
+            's_product_name' => 'required',
+            's_product_code' => 'required',
+            's_product_particular' => 'required',
+            's_product_category' => 'required',
+            's_product_price' => 'required',
+            's_quantity'=> 'required',
             'customer_info' => 'required',
         ]);
         $sales = Sale::create($request->all());
         
         // $purchases->save();
         Session::flash('success','Data insert successfully');
-        return redirect(route('home'));
+        return redirect(route('sales_pages.index'));
     }
 
     /**

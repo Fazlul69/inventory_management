@@ -21,7 +21,7 @@ class CreatePurchasesTable extends Migration
             $table->String('category');
             $table->double('product_price');
             $table->integer('quantity');
-            $table->integer('vendor_id')->unsigned()->nullable();;
+            $table->integer('vendor_id')->unsigned()->nullable();
             $table->foreign('vendor_id')->references('id')->on('vendors')->onDelete('cascade');
             $table->timestamps();
 

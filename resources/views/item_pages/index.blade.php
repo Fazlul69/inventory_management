@@ -1,3 +1,6 @@
+@extends('home')
+
+@section('content')
 <div class="middle">
     <nav class="navbar navbar-light bg-light justify-content-between">
       <a class="navbar-brand">Items</a>
@@ -12,9 +15,9 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
 
-      <a href="{{route('item.create')}}" type="button" class="btn btn-primary">
+      <!-- <a href="{{route('item.create')}}" type="button" class="btn btn-primary">
         Add New
-      </a>
+      </a> -->
     </nav>
 </div>
   <!-- table start -->
@@ -27,22 +30,30 @@
           <th scope="col">Product Code</th>
           <th scope="col">Particular</th>
           <th scope="col">Category</th>
-          <th scope="col">Purchase Price (TK)</th>
-          <th scope="col">Vendor</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Sale</th>
+          <th scope="col">Stock</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
       
-       
+       @foreach($purchases as $row)
         <tr>
-          <th scope="row">2</th>
-          <td>T-Series (Bulb)</td>
-          <td>LB-04</td>
-          <td>T 15 watt AC (Economy) b-22</td>
-          <td>T-series bulb</td>
-          <td>320</td>
-          <td>BSB</td>
+          <td>{{$row->id}}</td>
+          <td>{{$row->name}}</td>
+          <td>{{$row->product_code}}</td>
+          <td>{{$row->particular}}</td>
+          <td>{{$row->category}}</td>
+          <td>{{$row->quantity}}</td>
+          @foreach($sales as $s)
+          <td>{{$s->firstWhere('s_product_code',$row->product_code)->s_quantity}}</td>
+          <!-- @endforeach -->
+          <?php
+          $totalQ=$row->quantity;
+          $totalS=$s->firstWhere('s_product_code',$row->product_code)->s_quantity;
+          ?>
+          <td>{{$totalQ - $totalS}}</td>
           <td>
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -57,6 +68,8 @@
             </div>
           </td>
         </tr>
+        @endforeach
       </tbody>
     </table>
   </div>
+  @endsection

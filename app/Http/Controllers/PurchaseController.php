@@ -36,15 +36,7 @@ class PurchaseController extends Controller
             'quantity'=> 'required',
         ]);
         $purchase = Purchase::create($request->all());
-        // $purchases = new Purchase;
-        // $purchases->name= $request->input('name');
-        // $purchases->product_code= $request->input('product_code');
-        // $purchases->particular= $request->input('particular');
-        // $purchases->category= $request->input('category');
-        // $purchases->product_price= $request->input('product_price');
-        // $purchases->vendor_id= $request->input('vendor');
         
-        // $purchases->save();
         Session::flash('success','Data insert successfully');
         return redirect(route('purchase_pages.index'));
     }

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Session;
 use App\Models\Item;
 use Illuminate\Http\Request;
+use App\Models\Purchase;
+use App\Models\Sale;
+use DB;
 
 class ItemController extends Controller
 {
@@ -15,9 +18,9 @@ class ItemController extends Controller
      */
     public function index()
     {
-       // $items=Item::all();
-       // return view('item_pages.index')->with('items',$items);
-        //return view('home');
+        $purchases=Purchase::all();
+        $sales = Sale::all();
+        return view('item_pages.index')->with('purchases',$purchases)->with('sales',$sales);
     }
 
     /**
@@ -47,18 +50,7 @@ class ItemController extends Controller
         ]);
 
         $items = new Item;
-        // $items->name= $request->input('name');
-        // $items->product_code= $request->input('product_code');
-        // $items->particular= $request->input('particular');
-        // $items->category= $request->input('category');
-        // $items->purchase_price= $request->input('purchase_price');
-        // $items->vendors= $request->input('vendors');
-        $items->name = $request->name;
-        $items->product_code=  $request->product_code;
-        $items->particular = $request->particular;
-        $items->category = $request->category;
-        $items->product_price = $request->product_price;
-        $items->vendors = $request->vendors;
+        
 
         $items->save();
         Session::flash('success','Data insert successfully');

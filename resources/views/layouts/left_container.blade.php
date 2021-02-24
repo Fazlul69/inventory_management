@@ -24,10 +24,23 @@
                with font-awesome or any other icon font library -->
           
 
-          <li class="nav-item">
-            <a href="{{route('dashboard.index')}}" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Dashboard</p>
+          <li class="nav-item has-treeview menu-open">
+            <a href="{{route('dashboard.index')}}" class="nav-link ">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+          </li>
+          <!-- all item -->
+          <li class="nav-item has-treeview menu-open">
+            <a href="{{route('item_pages.index')}}" class="nav-link ">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                All Item
+                <i class="right fas fa-angle-left"></i>
+              </p>
             </a>
           </li>
           <!--purchase  -->
@@ -41,15 +54,9 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>All</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="{{route('purchase_pages.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Purchase</p>
+                  <p>All Purchase</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -71,15 +78,9 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link ">
+                <a href="{{route('vendor_pages.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>All</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('vendor.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Vendor</p>
+                  <p>All Vendor</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -101,21 +102,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link ">
+                <a href="{{route('sales_pages.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>All</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('sales.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sales</p>
+                  <p>All Sale</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('sales.create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add new Sales</p>
+                  <p>Add new Sale</p>
                 </a>
               </li>
             </ul>
