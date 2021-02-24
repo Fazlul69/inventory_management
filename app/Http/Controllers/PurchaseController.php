@@ -26,18 +26,36 @@ class PurchaseController extends Controller
     public function store(Request $request)
     {
        //dump($request->all());
-        $this->validate($request,[
-            'name' => 'required',
-            'product_code' => 'required',
-            'particular' => 'required',
-            'category' => 'required',
-            'product_price' => 'required',
-            'vendor_id' => 'required',
-            'quantity'=> 'required',
-        ]);
-        $purchase = Purchase::create($request->all());
+        // $this->validate($request,[
+        //     'name' => 'required',
+        //     'product_code' => 'required',
+        //     'particular' => 'required',
+        //     'category' => 'required',
+        //     'product_price' => 'required',
+        //     'vendor_id' => 'required',
+        //     'quantity'=> 'required',
+        // ]);
+        // $purchase = Purchase::create($request->all());
         
-        Session::flash('success','Data insert successfully');
+        // Session::flash('success','Data insert successfully');
+        // return redirect(route('purchase_pages.index'));
+
+
+        $purchase = Purchase::where([
+           // ['name', '=', $request->name],
+            ['product_code', '=', $request->product_code],
+            // ['particular', '=', $request->particular],
+            // ['category', '=', $request->category],
+            // ['product_price', '=', $request->product_price],
+            // ['vendor_id', '=', $request->vendor_id],
+            // ['quantity', '=', $request->quantity]
+        ])->first();
+    
+        if ($purchase) {
+            $purchase->increment('quantity', $request->quantity);
+        } else {
+            Purchase::create($request->all());
+        }
         return redirect(route('purchase_pages.index'));
     }
 }
