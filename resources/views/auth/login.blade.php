@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <!-- <div class="card-header">{{ __('Login') }}</div> -->
                 @if(session()->has('error'))
                    <div class="alert alert-danger">
                         {{ session()->get('error') }}
@@ -61,9 +61,9 @@
                                     {{ __('Login') }}
                                 </button>
 
-                                <a class="btn btn-link" href="/forget-password">
+                                <!-- <a class="btn btn-link" href="/forget-password">
                                     Forgot Your Password?
-                                </a>
+                                </a> -->
                             </div>
                         </div>
                     </form>

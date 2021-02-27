@@ -28,12 +28,12 @@ class LoginController extends Controller
             return redirect()->intended('home');
         }
 
-        return redirect('login')->with('error', 'Oppes! You have entered invalid credentials');
+        return redirect('loginFail')->with('error', 'Oppes! You have entered invalid credentials');
     }
 
     public function logout() {
       Auth::logout();
 
-      return redirect('login');
+      return view('auth.login');
     }
 }

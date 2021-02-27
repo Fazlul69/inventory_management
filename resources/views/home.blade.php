@@ -38,7 +38,7 @@
 </head>
 <body>
     <div class="wrapper">
-        @include('main.nav')
+        <!-- @include('main.nav') -->
 
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             @include('layouts.left_container')

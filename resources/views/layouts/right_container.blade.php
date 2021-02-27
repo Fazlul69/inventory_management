@@ -1,5 +1,5 @@
 <div class="top-view">
-                      <nav class="navbar navbar-light bg-light justify-content-between">
+                      <!-- <nav class="navbar navbar-light bg-light justify-content-between">
                        
                         <form class="form-inline">
                           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -21,7 +21,7 @@
                             </svg> Logout</a>
                           </div>
                         </div>
-                      </nav>
+                      </nav> -->
                       <hr>
                     </div>
                     <div class="tab-content" id="nav-tabContent">
