@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Session;
 use App\Models\Sale;
+use DB;
 
 class SalesController extends Controller
 {
@@ -22,6 +23,13 @@ class SalesController extends Controller
     public function create()
     {
         return view('sales_pages.create');
+    }
+
+    public function search(Request $request)
+    {
+        $search_text = $_GET['query'];
+        $sales = Sale::where('s_product_code','LIKE','%'.$search_text.'%')->get();
+        return view('sales_pages.index', compact('sales'));
     }
 
     /**

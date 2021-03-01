@@ -53,6 +53,7 @@ class PurchaseController extends Controller
     
         if ($purchase) {
             $purchase->increment('quantity', $request->quantity);
+            $purchase->increment('product_price', $request->product_price);
         } else {
             Purchase::create($request->all());
         }

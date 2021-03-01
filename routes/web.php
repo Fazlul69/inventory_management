@@ -16,6 +16,7 @@ Route::get('/home', 'App\Http\Controllers\HomeController@home')->name('home');
 Route::get('home/item','App\Http\Controllers\ItemController@index')->name('item_pages.index');
 Route::get('home/create','App\Http\Controllers\ItemController@create')->name('item.create');
 Route::post('home/create','App\Http\Controllers\ItemController@store')->name('item.store');
+Route::get('home/item/search','App\Http\Controllers\ItemController@search')->name('item.search');
 
 //purchase
 Route::get('home/purchase','App\Http\Controllers\PurchaseController@index')->name('purchase_pages.index');
@@ -34,5 +35,6 @@ Route::delete('delete/{id}','App\Http\Controllers\VendorController@delete')->nam
 Route::get('home/sales','App\Http\Controllers\SalesController@index')->name('sales_pages.index');
 Route::get('home/sales/create','App\Http\Controllers\SalesController@create')->name('sales.create');
 Route::post('home/sales/create','App\Http\Controllers\SalesController@store')->name('sales.store');
+Route::get('home/sales/search','App\Http\Controllers\SalesController@search')->name('sales.search');
 //Dashboard
 Route::get('home/dashboard','App\Http\Controllers\AccountingController@index')->name('dashboard.index');

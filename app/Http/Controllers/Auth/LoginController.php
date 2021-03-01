@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Session;
 
 class LoginController extends Controller
@@ -25,12 +25,15 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('home');
+            return redirect()->intended('home/item');
+        }
+        else{
+          return back()->with('error','Wrong Login Details');
         }
 
         return redirect('loginFail')->with('error', 'Oppes! You have entered invalid credentials');
     }
-
+   
     public function logout() {
       Auth::logout();
 

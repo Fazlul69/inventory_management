@@ -33,6 +33,13 @@ class ItemController extends Controller
         return view('item_pages.create');
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $purchases = DB::table('purchases')->paginate(10);
+        return view('item_pages.index')->with('purchases',$purchases);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

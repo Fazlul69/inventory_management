@@ -34,7 +34,7 @@
             </a>
           </li> -->
           <!-- all item -->
-          <li class="nav-item has-treeview menu-open active ">
+          <li class="nav-item has-treeview menu-open ">
             <a href="{{route('item_pages.index')}}" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt "></i>
               <p class="active">
