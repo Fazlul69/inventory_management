@@ -44,7 +44,6 @@ class VendorController extends Controller
         ]);
         $vendor = Vendor::create($request->all());
         
-        // $purchases->save();
         Session::flash('success','Data insert successfully');
         return redirect(route('vendor_pages.index'));
     }
@@ -68,7 +67,8 @@ class VendorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $vendor = Vendor::find($id);
+        return view('vendor_pages.edit',compact('vendor'));
     }
 
     /**
@@ -80,7 +80,21 @@ class VendorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required',
+            'mobile' => 'required',
+            'unpaid' => 'required',
+        ]);
+        $vendor = Vendor::find($id);
+        
+        $vendor->name = $request->name;
+        $vendor->mobile = $request->mobile;
+        $vendor->unpaid = $request->unpaid;
+
+        $vendor->save();
+        
+        Session::flash('success','Data insert successfully');
+        return redirect(route('vendor_pages.index'));
     }
 
     /**
@@ -91,6 +105,7 @@ class VendorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Vendor::find($id)->delete();
+        return redirect(route('vendor_pages.index'));
     }
 }

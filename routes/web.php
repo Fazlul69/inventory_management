@@ -26,6 +26,9 @@ Route::post('home/purchase/create','App\Http\Controllers\PurchaseController@stor
 Route::get('home/vendor','App\Http\Controllers\VendorController@index')->name('vendor_pages.index');
 Route::get('home/vendor/create','App\Http\Controllers\VendorController@create')->name('vendor.create');
 Route::post('home/vendor/create','App\Http\Controllers\VendorController@store')->name('vendor.store');
+Route::get('edit/{id}','App\Http\Controllers\VendorController@edit')->name('edit');
+Route::post('update/{id}','App\Http\Controllers\VendorController@update')->name('update');
+Route::delete('delete/{id}','App\Http\Controllers\VendorController@delete')->name('delete');
 
 //sales
 Route::get('home/sales','App\Http\Controllers\SalesController@index')->name('sales_pages.index');

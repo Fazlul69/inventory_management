@@ -27,12 +27,12 @@
                     <div class="tab-content" id="nav-tabContent">
                       <!--Purchase-->
                       <div class="company-brands js--company-item backdesign" id="purchase_all">
-                        @include('pages.purchase')
+                        <!-- @include('pages.purchase') -->
                       </div>
                       <!-- Purchase End -->
                       <!--vendor-->
                       <div class="company-brands js--company-item js--company-item--hidden backdesign" id="vendor">
-                        @include('pages.vendor')
+                        <!-- @include('pages.vendor') -->
                       </div>
                       <!-- vendor end -->
                       <!--Sales-->

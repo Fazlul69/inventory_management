@@ -36,7 +36,7 @@ ul{list-style-type: none;}
 }
 .dropdown-menu {
     left: -67px;
-    min-width: 8rem;}
+    min-width: 7rem !important;}
 #paginat {
     width: 65px;
     height: 45px;
