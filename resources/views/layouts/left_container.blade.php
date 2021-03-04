@@ -3,17 +3,17 @@
 <a href="index3.html" class="brand-link">
       <!-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8"> -->
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light"> Shah Amanat Light House</span>
     </a>
 <!-- Sidebar -->
 <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <!-- <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> -->
+          <!-- <img src="{{asset('images/light.jpg')}}" class="" alt="User Image"> -->
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <!-- <a href="#" class="d-block">Alexander Pierce</a> -->
         </div>
       </div>
 
@@ -47,7 +47,7 @@
             <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Purchase
+                Product In
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -55,18 +55,42 @@
               <li class="nav-item">
                 <a href="{{route('purchase_pages.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>All Purchase</p>
+                  <p>Store</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('purchase.create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add new Purchase</p>
+                  <p>Add New in Store</p>
                 </a>
               </li>
             </ul>
           </li>
-         <!-- vendor -->
+          <!-- sales -->
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link ">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Product Out
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('sales_pages.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Store Out</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('sales.create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Out from Store</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- vendor -->
          <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -86,30 +110,6 @@
                 <a href="{{route('vendor.create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add new Vendor</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <!-- sales -->
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link ">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Sales
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('sales_pages.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>All Sale</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('sales.create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add new Sale</p>
                 </a>
               </li>
             </ul>

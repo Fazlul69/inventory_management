@@ -26,20 +26,6 @@ class PurchaseController extends Controller
     public function store(Request $request)
     {
        //dump($request->all());
-        // $this->validate($request,[
-        //     'name' => 'required',
-        //     'product_code' => 'required',
-        //     'particular' => 'required',
-        //     'category' => 'required',
-        //     'product_price' => 'required',
-        //     'vendor_id' => 'required',
-        //     'quantity'=> 'required',
-        // ]);
-        // $purchase = Purchase::create($request->all());
-        
-        // Session::flash('success','Data insert successfully');
-        // return redirect(route('purchase_pages.index'));
-
 
         $purchase = Purchase::where([
            // ['name', '=', $request->name],
@@ -58,5 +44,11 @@ class PurchaseController extends Controller
             Purchase::create($request->all());
         }
         return redirect(route('purchase_pages.index'));
+    }
+
+    public function addsearch(){
+        $search_text = $_GET['query'];
+        $vendors = Vendor::where('product_code','LIKE','%'.$search_text.'%')->get();
+        return view('purchase_pages.create')->with('vendors',$vendors);
     }
 }

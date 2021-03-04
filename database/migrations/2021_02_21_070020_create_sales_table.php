@@ -17,11 +17,11 @@ class CreateSalesTable extends Migration
             $table->increments('id');
             $table->String('s_product_code');
             $table->String('s_product_name');
-            $table->String('s_product_particular');
-            $table->String('s_product_category');
-            $table->double('s_product_price');
             $table->integer('s_quantity');
-            $table->String('customer_info');
+            $table->String('s_product_particular')->nullable();
+            $table->String('s_product_category')->nullable();
+            $table->double('s_product_price')->nullable();
+            $table->String('customer_info')->nullable();
             $table->timestamps();
         });
     }

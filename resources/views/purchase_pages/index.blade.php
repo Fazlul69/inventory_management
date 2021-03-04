@@ -7,28 +7,22 @@
                 <div class="middle">
                   <nav class="navbar navbar-light bg-light justify-content-between">
                     <a class="navbar-brand">Purchase</a>
-                    <select name="pagi" id="paginat">
+                    <!-- <select name="pagi" id="paginat">
                       <option value="10">10</option>
                       <option value="25">25</option>
                       <option value="50">50</option>
                       <option value="100">100</option>
-                    </select>
+                    </select> -->
                     <form class="form-inline">
                       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
-                    
-<!-- 
-                    <a href="{{route('purchase.create')}}" type="button" class="btn btn-primary" >
-                      Add New
-                    </a> -->
 
-                  
                   </nav>
                 </div>
                 <!-- table start -->
                 <div class="table-part">
-                  <table class="table">
+                  <table class="table table-bordered">
                     <thead>
                       <tr>
                         <th scope="col">#</th>

@@ -12,6 +12,7 @@ class SalesController extends Controller
     public function index()
     {
         $sales=Sale::all();
+        $sales = DB::table('sales')->paginate(25);
         return view('sales_pages.index')->with('sales',$sales);
     }
 
@@ -29,7 +30,7 @@ class SalesController extends Controller
     {
         $search_text = $_GET['query'];
         $sales = Sale::where('s_product_code','LIKE','%'.$search_text.'%')->get();
-        return view('sales_pages.index', compact('sales'));
+        return view('sales_pages.index')->with('sales',$sales);
     }
 
     /**
@@ -43,11 +44,11 @@ class SalesController extends Controller
         $this->validate($request,[
             's_product_name' => 'required',
             's_product_code' => 'required',
-            's_product_particular' => 'required',
-            's_product_category' => 'required',
-            's_product_price' => 'required',
+            's_product_particular' => 'nullable',
+            's_product_category' => 'nullable',
+            's_product_price' => 'nullable',
             's_quantity'=> 'required',
-            'customer_info' => 'required',
+            'customer_info' => 'nullable',
         ]);
         $sales = Sale::create($request->all());
         

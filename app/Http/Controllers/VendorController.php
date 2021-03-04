@@ -39,13 +39,20 @@ class VendorController extends Controller
     {
         $this->validate($request,[
             'name' => 'required',
-            'mobile' => 'required',
-            'unpaid' => 'required',
+            'mobile' => 'nullable',
+            'unpaid' => 'nullable',
         ]);
         $vendor = Vendor::create($request->all());
         
         Session::flash('success','Data insert successfully');
         return redirect(route('vendor_pages.index'));
+    }
+
+    public function search(Request $request)
+    {
+        $search_text = $_GET['query'];
+        $vendors = Vendor::where('name','LIKE','%'.$search_text.'%')->get();
+        return view('vendor_pages.index')->with('vendors',$vendors);
     }
 
     /**
@@ -103,9 +110,9 @@ class VendorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
         Vendor::find($id)->delete();
-        return redirect(route('vendor_pages.index'));
+        return redirect()->back();
     }
 }

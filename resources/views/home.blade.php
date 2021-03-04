@@ -47,10 +47,10 @@
                 <!-- <div class="div"><p>Shah Amanat Light House</p></div> -->
                 <!-- Image and text -->
               <nav class="navbar navbar-light bg-light up_design" style="background-color: #87c6d9c2 !important">
-                <a class="navbar-brand" href="#">
+                
                   <!-- <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt=""> -->
-                  Shah Amanat Light House
-                </a>
+                  <h3 class="tit">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ </h3>
+               
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
                         <div class="dropdown">

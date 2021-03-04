@@ -3,7 +3,9 @@
 
 @section('content')
 <div class="container">
-        <div class="card" style="margin-top:100px">
+
+        <h4 class="f">Add New Vendor</h4>
+        <div class="card" style="margin-top:25px">
             <div class="card-body">
                 <div class="row" >
                     <div class="col-8">

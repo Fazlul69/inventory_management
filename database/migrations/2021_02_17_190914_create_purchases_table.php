@@ -17,9 +17,9 @@ class CreatePurchasesTable extends Migration
             $table->increments('id');
             $table->String('name');
             $table->String('product_code');
-            $table->String('particular');
-            $table->String('category');
-            $table->double('product_price');
+            $table->String('particular')->nullable();
+            $table->String('category')->nullable();
+            $table->double('product_price')->nullable();
             $table->integer('quantity');
             $table->integer('vendor_id')->unsigned()->nullable();
             $table->foreign('vendor_id')->references('id')->on('vendors')->onDelete('cascade');

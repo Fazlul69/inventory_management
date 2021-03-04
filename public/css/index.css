@@ -178,3 +178,45 @@ tr {
   .bi.bi-bricks {
     margin-right: 5px;
   }  
+
+  /* pagination */
+  .pagination{
+    margin-left: 20px;
+  }
+
+  .w-5{
+    /* display:none; */
+    height: 25px;
+    width: 15px;
+  }
+  .relative.inline-flex.items-center.px-4.py-2.text-sm.font-medium.text-gray-700.bg-white.border.border-gray-300.leading-5.rounded-md.hover\:text-gray-500.focus\:outline-none.focus\:ring.ring-gray-300.focus\:border-blue-300.active\:bg-gray-100.active\:text-gray-700.transition.ease-in-out.duration-150 {
+  display: none;
+  }
+  .relative.inline-flex.items-center.px-4.py-2.ml-3.text-sm.font-medium.text-gray-500.bg-white.border.border-gray-300.cursor-default.leading-5.rounded-md {
+  display: none;
+  }
+ 
+  .flex.justify-between.flex-1.sm\:hidden {
+  display: none;
+  }
+  /* card */
+  /* .col-11.card.rounded.shadow-sm {
+    margin-left: 4%;
+    margin-top: 50px;
+} */
+.tit {
+  margin-left: 400px;
+}
+[class*="sidebar-dark"] .brand-link {
+  color: #fff !important;
+}
+.f {
+  padding-top: 20px;
+}
+.fa {
+  padding-top: 20px;
+  margin-left: 35px;
+}
+.form-control.col-11 {
+  margin-left: -5px;
+}
