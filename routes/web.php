@@ -22,6 +22,7 @@ Route::get('home/item/search','App\Http\Controllers\ItemController@search')->nam
 Route::get('home/purchase','App\Http\Controllers\PurchaseController@index')->name('purchase_pages.index');
 Route::get('home/purchase/create','App\Http\Controllers\PurchaseController@create')->name('purchase.create');
 Route::post('home/purchase/create','App\Http\Controllers\PurchaseController@store')->name('purchase.store');
+Route::get('home/purchase/search','App\Http\Controllers\PurchaseController@search')->name('purchase.search');
 
 //vendor
 Route::get('home/vendor','App\Http\Controllers\VendorController@index')->name('vendor_pages.index');

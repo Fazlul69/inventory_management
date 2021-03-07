@@ -13,10 +13,11 @@
                       <option value="50">50</option>
                       <option value="100">100</option>
                     </select> -->
-                    <form class="form-inline">
-                      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="form-inline" action="{{route('purchase.search')}}" method="get">
+                      <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search">
                       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
+
 
                   </nav>
                 </div>

@@ -65,13 +65,31 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <form class="form-inline" action="" method="get">
-                        <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                    <div class="card">
-                        <div class="card-body">
-
+                <form class="form-inline" action="{{route('purchase.create')}}" method="get">
+                    <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                    <div class="details">
+                        <div class="card">
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Product Code</th>
+                                            <th>Particular</th>
+                                            <th>Quantity</th>
+                                        </tr>
+                                    </thead> 
+                                    <tbody>
+                                        <tr>
+                                        @foreach($purchases as $p)
+                                            <td>{{$p->name}}</td>
+                                        @endforeach
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Session;
 use App\Models\Purchase;
 use App\Models\Vendor;
+use DB;
 
 class PurchaseController extends Controller
 {
@@ -16,11 +17,24 @@ class PurchaseController extends Controller
     }
 
 
-    public function create()
+    public function create(Request $request)
     {
         $vendors=Vendor::all();
-        return view('purchase_pages.create', compact('vendors'));
-        //return view('purchase_pages.create');
+        // return view('purchase_pages.create', compact('vendors'));
+
+        // $search_text = $_GET['query'];
+        // $purchases = Purchase::where('product_code','LIKE','%'.$search_text.'%')->get();
+        // return view('purchase_pages.create', compact('vendors'))->with('purchases',$purchases);
+
+        $search = $request->input('query');
+
+        // Search in the title and body columns from the posts table
+        $purchases = Purchase::query()
+            ->where('name', 'LIKE', "%{$search}%")
+            ->orWhere('product_code', 'LIKE', "%{$search}%")
+            ->get();
+        
+        return view('purchase_pages.create', compact('vendors'))->with('purchases',$purchases);
     }
 
     public function store(Request $request)
@@ -46,9 +60,9 @@ class PurchaseController extends Controller
         return redirect(route('purchase_pages.index'));
     }
 
-    public function addsearch(){
+    public function search(Request $request){
         $search_text = $_GET['query'];
-        $vendors = Vendor::where('product_code','LIKE','%'.$search_text.'%')->get();
-        return view('purchase_pages.create')->with('vendors',$vendors);
+        $purchases = Purchase::where('product_code','LIKE','%'.$search_text.'%')->get();
+        return view('purchase_pages.index')->with('purchases',$purchases);
     }
 }

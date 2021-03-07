@@ -21,9 +21,7 @@
     </nav>
 </div>
   <!-- table start -->
-  @if($sales->isEmpty())
-  {{'No Product Out From The Store'}}
-  @else
+
   <div class="table-part">
     <table class="table table-bordered">
       <thead>
@@ -49,14 +47,14 @@
           <td>{{$row->particular}}</td>
           <td>{{$row->category}}</td>
           <td>{{$row->quantity}}</td>
-          @foreach($sales as $s)
-          <td>{{$s->firstWhere('s_product_code',$row->product_code)->s_quantity}}</td>
-          <!-- @endforeach -->
-          <?php
-          $totalQ=$row->quantity;
-          $totalS=$s->firstWhere('s_product_code',$row->product_code)->s_quantity;
-          ?>
-          <td>{{$totalQ - $totalS}}</td>
+         @foreach($sales as $s)
+         @if($row->product_code == $s->s_product_code)
+          <td>{{$s->s_quantity}}</td>
+          <td>{{($row->quantity) - ($s->s_quantity)}}</td>
+          @endif
+         @endforeach
+        
+         
           <!-- <td>
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -75,8 +73,6 @@
       </tbody>
     </table>
   </div>
-
-  @endif
   <style>
     .table td {
     padding: 0.5rem !important;}
