@@ -77,16 +77,17 @@
                                         <tr>
                                             <th>Name</th>
                                             <th>Product Code</th>
-                                            <th>Particular</th>
-                                            <th>Quantity</th>
+                                            <th>Stock</th>
                                         </tr>
                                     </thead> 
                                     <tbody>
+                                    @foreach($purchases as $p)
                                         <tr>
-                                        @foreach($purchases as $p)
                                             <td>{{$p->name}}</td>
-                                        @endforeach
+                                            <td>{{$p->product_code}}</td>
+                                            <td>{{$p->quantity}}</td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

@@ -13,6 +13,8 @@ class PurchaseController extends Controller
     public function index()
     {
         $purchases=Purchase::all();
+        // $purchases = DB::table('purchases')->paginate(15);
+        $purchases = Purchase::with('vendor')->paginate(15);
         return view('purchase_pages.index')->with('purchases',$purchases);
     }
 
@@ -62,7 +64,7 @@ class PurchaseController extends Controller
 
     public function search(Request $request){
         $search_text = $_GET['query'];
-        $purchases = Purchase::where('product_code','LIKE','%'.$search_text.'%')->get();
+        $purchases = Purchase::where('product_code','LIKE','%'.$search_text.'%')->paginate(15);
         return view('purchase_pages.index')->with('purchases',$purchases);
     }
 }

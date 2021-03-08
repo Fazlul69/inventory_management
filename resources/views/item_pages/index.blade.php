@@ -73,6 +73,9 @@
       </tbody>
     </table>
   </div>
+  <div class="pagination">
+    <span>{{$purchases->links()}}</span>
+  </div>
   <style>
     .table td {
     padding: 0.5rem !important;}

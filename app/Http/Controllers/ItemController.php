@@ -20,6 +20,7 @@ class ItemController extends Controller
     {
         $purchases=Purchase::all();
         $sales = Sale::all();
+        $purchases = DB::table('purchases')->paginate(15);
         // $sales = Sale::whereIn('s_product_code', $purchases)->get();
         return view('item_pages.index')->with('purchases',$purchases)->with('sales',$sales);
     }
@@ -37,7 +38,7 @@ class ItemController extends Controller
     public function search(Request $request)
     {
         $search_text = $_GET['query'];
-        $purchases = Purchase::where('product_code','LIKE','%'.$search_text.'%')->get();
+        $purchases = Purchase::where('product_code','LIKE','%'.$search_text.'%')->paginate(15);
         $sales = Sale::where('s_product_code','LIKE','%'.$search_text.'%')->get();
         return view('item_pages.index')->with('purchases',$purchases)->with('sales',$sales);
     }
