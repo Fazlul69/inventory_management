@@ -38,6 +38,9 @@
         </tr>
       </thead>
       <tbody>
+          <?php
+            $total=0;
+          ?>
       
        @foreach($purchases as $row)
         <tr>
@@ -47,11 +50,11 @@
           <td>{{$row->particular}}</td>
           <td>{{$row->category}}</td>
           <td>{{$row->quantity}}</td>
-         @foreach($sales as $s)
-         @if($row->product_code == $s->s_product_code)
-          <td>{{$s->s_quantity}}</td>
-          <td>{{($row->quantity) - ($s->s_quantity)}}</td>
-          @endif
+          @foreach($sales as $s)
+            @if($row->product_code == $s->s_product_code)
+              <td>{{$total = $s->s_quantity}}</td>
+              <td>{{($row->quantity) - ($s->s_quantity)}}</td>
+            @endif
          @endforeach
         
          

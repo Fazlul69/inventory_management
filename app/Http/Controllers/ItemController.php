@@ -16,12 +16,11 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $purchases=Purchase::all();
         $sales = Sale::all();
         $purchases = DB::table('purchases')->paginate(15);
-        // $sales = Sale::whereIn('s_product_code', $purchases)->get();
         return view('item_pages.index')->with('purchases',$purchases)->with('sales',$sales);
     }
 

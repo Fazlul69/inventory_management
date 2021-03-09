@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Session;
 use App\Models\Sale;
+use App\Models\Purchase;
+use App\Models\Vendor;
 use DB;
 
 class SalesController extends Controller
@@ -12,7 +14,7 @@ class SalesController extends Controller
     public function index()
     {
         $sales=Sale::all();
-        $sales = DB::table('sales')->paginate(25);
+        $sales = DB::table('sales')->paginate(15);
         return view('sales_pages.index')->with('sales',$sales);
     }
 
@@ -21,15 +23,25 @@ class SalesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('sales_pages.create');
+        $search = $request->input('query');
+
+        $vendors=Vendor::all();
+        $sales=Sale::all();
+        $search = $request->input('query');
+        $purchases = Purchase::query()
+            ->where('name', 'LIKE', "%{$search}%")
+            ->orWhere('product_code', 'LIKE', "%{$search}%")
+            ->get();
+        
+        return view('sales_pages.create', compact('vendors'))->with('purchases',$purchases)->with('sales', $sales);
     }
 
     public function search(Request $request)
     {
         $search_text = $_GET['query'];
-        $sales = Sale::where('s_product_code','LIKE','%'.$search_text.'%')->get();
+        $sales = Sale::where('s_product_code','LIKE','%'.$search_text.'%')->paginate(15);
         return view('sales_pages.index')->with('sales',$sales);
     }
 
@@ -41,19 +53,21 @@ class SalesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            's_product_name' => 'required',
-            's_product_code' => 'required',
-            's_product_particular' => 'nullable',
-            's_product_category' => 'nullable',
-            's_product_price' => 'nullable',
-            's_quantity'=> 'required',
-            'customer_info' => 'nullable',
-        ]);
-        $sales = Sale::create($request->all());
-        
-        // $purchases->save();
-        Session::flash('success','Data insert successfully');
+        $sales=Sale::where([
+            // 's_product_name' => 'required',
+            ['s_product_code', '=', $request->s_product_code],
+            // 's_product_particular' => 'nullable',
+            // 's_product_category' => 'nullable',
+            // 's_product_price' => 'nullable',
+            // 's_quantity'=> 'required',
+            // 'customer_info' => 'nullable',
+        ])->first();
+
+        if ($sales) {
+            $sales->increment('s_quantity', $request->s_quantity);
+        }else{
+            Sale::create($request->all());
+        }
         return redirect(route('sales_pages.index'));
     }
 

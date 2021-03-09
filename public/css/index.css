@@ -220,3 +220,7 @@ tr {
 .form-control.col-11 {
   margin-left: -5px;
 }
+.form-control.col-10 {
+  margin-left: 56px;
+  margin-top: -37px;
+}

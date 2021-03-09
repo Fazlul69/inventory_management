@@ -28,6 +28,7 @@
           <th scope="col">Category</th>
           <th scope="col">Quantity</th>
           <th scope="col">Sales Price (TK)</th>
+          <th>Date</th>
           <th scope="col">Customer Information</th>
           <th scope="col">Action</th>
         </tr>
@@ -42,6 +43,7 @@
           <td>{{$sale->s_product_category}}</td>
           <td>{{$sale->s_quantity}}</td>
           <td>{{$sale->s_product_price}}</td>
+          <td>{{$sale->updated_at}}</td>
           <td>{{$sale->customer_info}}</td>
           <td>
             <div class="dropdown">

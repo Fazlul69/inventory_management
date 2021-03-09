@@ -41,10 +41,10 @@
                                             <input type="text" class="form-control" name="quantity" placeholder="Quantity">
                                         </div>
                                         <div class="form-group">
-                                            <div class="input-group-prepend">
+                                            <div class="input-group-prepend col-1">
                                                 <span class="input-group-text">	৳</span>
                                             </div>
-                                            <input type="text" class="form-control" name="product_price"  placeholder="Purchase Price">
+                                            <input type="text" class="form-control col-10" name="product_price"  placeholder="Purchase Price">
                                         </div>
                                         <div class="form-group">
                                             <label for="vendor">Choose a Vendor:</label>
@@ -65,10 +65,10 @@
                     </div>
                 </div>
                 <div class="col-6">
-                <form class="form-inline" action="{{route('purchase.create')}}" method="get">
-                    <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                    <form class="form-inline" action="{{route('purchase.create')}}" method="get">
+                        <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
                     <div class="details">
                         <div class="card">
                             <div class="card-body">
@@ -85,7 +85,12 @@
                                         <tr>
                                             <td>{{$p->name}}</td>
                                             <td>{{$p->product_code}}</td>
-                                            <td>{{$p->quantity}}</td>
+
+                                            @foreach($sales as $s)
+                                            @if($p->product_code == $s->s_product_code)
+                                            <td>{{($p->quantity) - ($s->s_quantity)}}</td>
+                                            @endif
+                                            @endforeach
                                         </tr>
                                         @endforeach
                                     </tbody>

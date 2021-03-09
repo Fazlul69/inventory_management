@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Session;
 use App\Models\Purchase;
 use App\Models\Vendor;
+use App\Models\Sale;
 use DB;
 
 class PurchaseController extends Controller
@@ -13,7 +14,6 @@ class PurchaseController extends Controller
     public function index()
     {
         $purchases=Purchase::all();
-        // $purchases = DB::table('purchases')->paginate(15);
         $purchases = Purchase::with('vendor')->paginate(15);
         return view('purchase_pages.index')->with('purchases',$purchases);
     }
@@ -22,6 +22,7 @@ class PurchaseController extends Controller
     public function create(Request $request)
     {
         $vendors=Vendor::all();
+        $sales=Sale::all();
         // return view('purchase_pages.create', compact('vendors'));
 
         // $search_text = $_GET['query'];
@@ -36,7 +37,7 @@ class PurchaseController extends Controller
             ->orWhere('product_code', 'LIKE', "%{$search}%")
             ->get();
         
-        return view('purchase_pages.create', compact('vendors'))->with('purchases',$purchases);
+        return view('purchase_pages.create', compact('vendors'))->with('purchases',$purchases)->with('sales', $sales);
     }
 
     public function store(Request $request)
