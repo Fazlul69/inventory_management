@@ -37,8 +37,12 @@ class ItemController extends Controller
     public function search(Request $request)
     {
         $search_text = $_GET['query'];
-        $purchases = Purchase::where('product_code','LIKE','%'.$search_text.'%')->paginate(15);
-        $sales = Sale::where('s_product_code','LIKE','%'.$search_text.'%')->get();
+        $purchases = Purchase::where('product_code','LIKE','%'.$search_text.'%')
+                    ->orWhere('name','LIKE','%'.$search_text.'%')
+                    ->paginate(15);
+        $sales = Sale::where('s_product_code','LIKE','%'.$search_text.'%')
+        ->orWhere('s_product_name','LIKE','%'.$search_text.'%')->get();
+
         return view('item_pages.index')->with('purchases',$purchases)->with('sales',$sales);
     }
 

@@ -66,7 +66,7 @@
 							       }else{
 							       	event.preventDefault();
 							       }
-							       "class="btn btn-danger dropdown-item" href="">Delete</button></td> 
+							       "class="btn btn-danger dropdown-item" href="">Delete</button>
                 <!-- <a class="dropdown-item" href="#">Delete</a> -->
               </div>
             </div>

@@ -82,17 +82,17 @@
                                     </thead> 
                                     <tbody>
                                     @foreach($purchases as $p)
-                                        <tr>
-                                            <td>{{$p->name}}</td>
-                                            <td>{{$p->product_code}}</td>
+                                            <tr>
+                                                <td>{{$p->name}}</td>
+                                                <td>{{$p->product_code}}</td>
 
-                                            @foreach($sales as $s)
-                                            @if($p->product_code == $s->s_product_code)
-                                            <td>{{($p->quantity) - ($s->s_quantity)}}</td>
-                                            @endif
+                                                @php
+                                                    $qty = $sales->where('s_product_code',$p->product_code)->sum('s_quantity');
+                                                @endphp
+                                                <!-- <td>{{$qty}}</td> -->
+                                                <td>{{$p->quantity - $qty}}</td>
+                                            </tr>
                                             @endforeach
-                                        </tr>
-                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

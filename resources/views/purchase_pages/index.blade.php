@@ -57,8 +57,21 @@
                                 </svg>
                               </button>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Edit</a>
-                                <a class="dropdown-item" href="#">Delete</a>
+                                <a class="dropdown-item" href="{{route('purchase.edit',$purchase->id)}}">Edit</a>
+                                
+                                <form method="POST" id="delete-form-{{$purchase->id}}" 
+                                  action="{{route('purchase.delete',$purchase->id)}}" style="display: none;">
+                                  @csrf
+                                  {{method_field('delete')}}
+                                  
+                                </form>
+                                  <button onclick="if(confirm('Are you sure, You want to delete this?')){
+                                    event.preventDefault();
+                                    document.getElementById('delete-form-{{$purchase->id}}').submit();
+                                  }else{
+                                    event.preventDefault();
+                                  }
+                                  "class="btn btn-danger dropdown-item" href="">Delete</button>
                               </div>
                             </div>
                           </td>

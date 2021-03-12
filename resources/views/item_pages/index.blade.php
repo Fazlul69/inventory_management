@@ -38,9 +38,7 @@
         </tr>
       </thead>
       <tbody>
-          <?php
-            $total=0;
-          ?>
+          
       
        @foreach($purchases as $row)
         <tr>
@@ -49,31 +47,18 @@
           <td>{{$row->product_code}}</td>
           <td>{{$row->particular}}</td>
           <td>{{$row->category}}</td>
-          <td>{{$row->quantity}}</td>
-          @foreach($sales as $s)
-            @if($row->product_code == $s->s_product_code)
-              <td>{{$total = $s->s_quantity}}</td>
-              <td>{{($row->quantity) - ($s->s_quantity)}}</td>
-            @endif
-         @endforeach
+          <td>{{$row->quantity}}</td>  
+
+              @php
+                $qty = $sales->where('s_product_code',$row->product_code)->sum('s_quantity');
+              @endphp
+              <td>{{$qty}}</td>
+              <td>{{$row->quantity - $qty}}</td>
+           
         
-         
-          <!-- <td>
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
-                </svg>
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Edit</a>
-                <a class="dropdown-item" href="#">Delete</a>
-              </div>
-            </div>
-          </td> -->
         </tr>
         @endforeach
-      </tbody>
+      </tbody>  
     </table>
   </div>
   <div class="pagination">

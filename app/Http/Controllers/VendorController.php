@@ -89,12 +89,14 @@ class VendorController extends Controller
     {
         $this->validate($request,[
             'name' => 'required',
-            'mobile' => 'required',
-            'unpaid' => 'required',
+            'email' => 'nullable',
+            'mobile' => 'nullable',
+            'unpaid' => 'nullable',
         ]);
         $vendor = Vendor::find($id);
         
         $vendor->name = $request->name;
+        $vendor->email = $request->email;
         $vendor->mobile = $request->mobile;
         $vendor->unpaid = $request->unpaid;
 

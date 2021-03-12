@@ -41,7 +41,9 @@ class SalesController extends Controller
     public function search(Request $request)
     {
         $search_text = $_GET['query'];
-        $sales = Sale::where('s_product_code','LIKE','%'.$search_text.'%')->paginate(15);
+        $sales = Sale::where('s_product_code','LIKE','%'.$search_text.'%')
+                        ->orWhere('s_product_name','LIKE','%'.$search_text.'%')
+                        ->paginate(15);
         return view('sales_pages.index')->with('sales',$sales);
     }
 
@@ -53,21 +55,22 @@ class SalesController extends Controller
      */
     public function store(Request $request)
     {
-        $sales=Sale::where([
-            // 's_product_name' => 'required',
-            ['s_product_code', '=', $request->s_product_code],
-            // 's_product_particular' => 'nullable',
-            // 's_product_category' => 'nullable',
-            // 's_product_price' => 'nullable',
-            // 's_quantity'=> 'required',
-            // 'customer_info' => 'nullable',
-        ])->first();
+        $this->validate($request,[
+            's_product_name' => 'required',
+            's_product_code' => 'required',
+            's_product_particular' => 'nullable',
+            's_product_category' => 'nullable',
+            's_product_price' => 'nullable',
+            's_quantity'=> 'required',
+            'customer_info' => 'nullable',
+        ]);
 
-        if ($sales) {
-            $sales->increment('s_quantity', $request->s_quantity);
-        }else{
-            Sale::create($request->all());
-        }
+        // if ($sales) {
+        //     $sales->increment('s_quantity', $request->s_quantity);
+        // }else{
+        //     Sale::create($request->all());
+        // }
+        $sales =Sale::create($request->all());
         return redirect(route('sales_pages.index'));
     }
 
@@ -90,7 +93,8 @@ class SalesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $sales = Sale::find($id);
+        return view('sales_pages.edit',compact('sales'));
     }
 
     /**
@@ -102,7 +106,29 @@ class SalesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            's_product_name' => 'required',
+            's_product_code' => 'required',
+            's_product_particular' => 'nullable',
+            's_product_category' => 'nullable',
+            's_product_price' => 'nullable',
+            's_quantity'=> 'required',
+            'customer_info' => 'nullable',
+        ]);
+        $sales = Sale::find($id);
+        
+        $sales->s_product_name = $request->s_product_name;
+        $sales->s_product_code = $request->s_product_code;
+        $sales->s_product_particular = $request->s_product_particular;
+        $sales->s_product_category = $request->s_product_category;
+        $sales->s_product_price = $request->s_product_price;
+        $sales->s_quantity = $request->s_quantity;
+        $sales->customer_info = $request->customer_info;
+
+        $sales->save();
+        
+        Session::flash('success','Data insert successfully');
+        return redirect(route('sales_pages.index'));
     }
 
     /**
@@ -111,8 +137,9 @@ class SalesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        Sale::find($id)->delete();
+        return redirect()->back();
     }
 }
