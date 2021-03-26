@@ -20,7 +20,7 @@ Route::get('home/item/search','App\Http\Controllers\ItemController@search')->nam
 
 //purchase
 Route::get('home/purchase','App\Http\Controllers\PurchaseController@index')->name('purchase_pages.index');
-Route::get('home/pur/chase/create','App\Http\Controllers\PurchaseController@create')->name('purchase.create');
+Route::get('home/purchase/create','App\Http\Controllers\PurchaseController@create')->name('purchase.create');
 Route::post('home/purchase/create','App\Http\Controllers\PurchaseController@store')->name('purchase.store');
 Route::get('home/purchase/search','App\Http\Controllers\PurchaseController@search')->name('purchase.search');
 Route::get('stored/edit/{id}','App\Http\Controllers\PurchaseController@edit')->name('purchase.edit');
@@ -44,5 +44,18 @@ Route::get('home/sales/search','App\Http\Controllers\SalesController@search')->n
 Route::get('out/edit/{id}','App\Http\Controllers\SalesController@edit')->name('sales.edit');
 Route::post('out/update/{id}','App\Http\Controllers\SalesController@update')->name('sales.update');
 Route::delete('out/delete/{id}','App\Http\Controllers\SalesController@delete')->name('sales.delete');
+
+//Damage
+Route::get('home/damage','App\Http\Controllers\DamageController@index')->name('damage.index');
+Route::get('home/damage/create','App\Http\Controllers\DamageController@create')->name('damage.create');
+Route::post('home/damage/create','App\Http\Controllers\DamageController@store')->name('damage.store');
+Route::get('damage/edit/{id}','App\Http\Controllers\DamageController@edit')->name('damage.edit');
+Route::post('damage/update/{id}','App\Http\Controllers\DamageController@update')->name('damage.update');
+Route::delete('damage/delete/{id}','App\Http\Controllers\DamageController@delete')->name('damage.delete');
 //Dashboard
 Route::get('home/dashboard','App\Http\Controllers\AccountingController@index')->name('dashboard.index');
+
+//Barcode
+Route::get('barcode','App\Http\Controllers\BarcodeController@index')->name('bar.index');
+Route::get('home/barcode/create','App\Http\Controllers\BarcodeController@create')->name('bar.create');
+Route::post('home/barcode/create','App\Http\Controllers\BarcodeController@store')->name('bar.store');

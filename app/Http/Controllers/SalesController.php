@@ -7,6 +7,7 @@ use Session;
 use App\Models\Sale;
 use App\Models\Purchase;
 use App\Models\Vendor;
+use App\Models\Damage;
 use DB;
 
 class SalesController extends Controller
@@ -29,13 +30,14 @@ class SalesController extends Controller
 
         $vendors=Vendor::all();
         $sales=Sale::all();
+        $damages=Damage::all();
         $search = $request->input('query');
         $purchases = Purchase::query()
             ->where('name', 'LIKE', "%{$search}%")
             ->orWhere('product_code', 'LIKE', "%{$search}%")
             ->get();
         
-        return view('sales_pages.create', compact('vendors'))->with('purchases',$purchases)->with('sales', $sales);
+        return view('sales_pages.create', compact('vendors'))->with('purchases',$purchases)->with('sales', $sales)->with('damages', $damages);
     }
 
     public function search(Request $request)
@@ -62,7 +64,9 @@ class SalesController extends Controller
             's_product_category' => 'nullable',
             's_product_price' => 'nullable',
             's_quantity'=> 'required',
+            'total'=> 'nullable',
             'customer_info' => 'nullable',
+            'date'=>'nullable',
         ]);
 
         // if ($sales) {

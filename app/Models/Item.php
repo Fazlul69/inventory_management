@@ -37,5 +37,10 @@ class Item extends Model
         return $this->belongsTo(Sale::class);
 
     }
+    function damage(){
+
+        return $this->belongsTo(Damage::class);
+
+    }
 }
 

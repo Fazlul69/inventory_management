@@ -220,10 +220,28 @@ tr {
 .form-control.col-11 {
   margin-left: -5px;
 }
-.form-control.col-10 {
+/* .form-control.col-10 {
   margin-left: 56px;
   margin-top: -37px;
-}
+} */
 .main-sidebar.sidebar-dark-primary.elevation-4{
   background-color: #3570aa;
+}
+label:not(.form-check-label):not(.custom-file-label) {
+  font-weight: 500 !important;
+  font-size: 13px;
+}
+
+/* dash */
+.border1,.border2 {
+  border: 1px solid;
+  height: 110px;
+  width: 380px;
+  margin-left: 50px;
+  margin-bottom: 50px;background-color: #146fd0;
+  color: #fff;
+}
+.amount {
+  padding: 40px 5px 5px 5px;
+  text-align: center;
 }

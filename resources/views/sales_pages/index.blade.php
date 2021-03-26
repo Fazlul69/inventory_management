@@ -3,7 +3,7 @@
 @section('content')
   <div class="middle">
     <nav class="navbar navbar-light bg-light justify-content-between">
-      <a class="navbar-brand">Sales</a>
+      <a class="navbar-brand">Store Out</a>
       <!-- <select name="pagi" id="paginat">
         <option value="10">10</option>
         <option value="25">25</option>
@@ -42,8 +42,8 @@
           <td>{{$sale->s_product_particular}}</td>
           <td>{{$sale->s_product_category}}</td>
           <td>{{$sale->s_quantity}}</td>
-          <td>{{$sale->s_product_price}}</td>
-          <td>{{$sale->updated_at}}</td>
+          <td>{{$sale->total}}</td>
+          <td>{{$sale->date}}</td>
           <td>{{$sale->customer_info}}</td>
           <td>
             <div class="dropdown">

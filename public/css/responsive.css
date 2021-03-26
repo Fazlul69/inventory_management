@@ -1,0 +1,15 @@
+
+@media(min-width: 480px) and (max-width: 580px){
+    .brand-text.font-weight-light {
+        font-size: 11px;
+    }
+    .tit {
+        margin-left: 185px;
+        font-size: 22px;
+    }
+    .main-sidebar, .main-sidebar::before {
+        margin-left: 0px !important;
+        width: 150px !important;
+        font-size: 11px;
+    }
+}

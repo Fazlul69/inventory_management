@@ -6,7 +6,7 @@
                 <div class="col-12">
                   <div class="middle">
                     <nav class="navbar navbar-light bg-light justify-content-between">
-                      <a class="navbar-brand">Purchase</a>
+                      <a class="navbar-brand">Store In</a>
                       <!-- <select name="pagi" id="paginat">
                         <option value="10">10</option>
                         <option value="25">25</option>
@@ -32,7 +32,8 @@
                           <th scope="col">Particular</th>
                           <th scope="col">Category</th>
                           <th scope="col">Quantity</th>
-                          <th scope="col">Purchase Price (TK)</th>
+                          <th scope="col">Total Price (TK)</th>
+                          <th>Date</th>
                           <th scope="col">Vendor</th>
                           <th scope="col">Action</th>
                         </tr>
@@ -46,7 +47,8 @@
                           <td>{{$purchase->particular}}</td>
                           <td>{{$purchase->category}}</td>
                           <td>{{$purchase->quantity}}</td>
-                          <td>{{$purchase->product_price}}</td>
+                          <td>{{$purchase->total}}</td>
+                          <td>{{$purchase->date}}</td>
                           <td>{{$purchase->vendor->name}}</td>
                          
                           <td>

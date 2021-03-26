@@ -7,6 +7,7 @@ use App\Models\Item;
 use Illuminate\Http\Request;
 use App\Models\Purchase;
 use App\Models\Sale;
+use App\Models\Damage;
 use DB;
 
 class ItemController extends Controller
@@ -20,8 +21,9 @@ class ItemController extends Controller
     {
         $purchases=Purchase::all();
         $sales = Sale::all();
+        $damages = Damage::all();
         $purchases = DB::table('purchases')->paginate(15);
-        return view('item_pages.index')->with('purchases',$purchases)->with('sales',$sales);
+        return view('item_pages.index')->with('purchases',$purchases)->with('sales',$sales)->with('damages',$damages);
     }
 
     /**

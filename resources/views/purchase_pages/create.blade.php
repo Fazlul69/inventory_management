@@ -10,7 +10,7 @@
                     <div class="card" style="margin-top:25px">
                         <div class="card-body">
                             <div class="row" >
-                                <div class="col-8">
+                                <div class="col-12">
                                     @if(Session::has('success'))
                                         <div class="alert alert-success">{{Session::get('success')}}</div>
                                     @endif
@@ -25,34 +25,66 @@
                                     @endif
                                     <form action="{{route('purchase.store')}}" method="post" enctype="multipart/form-data">
                                         @csrf
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="name" placeholder="Name">
+                                        <div class="form-group row">
+                                            <label for="date" class="col-sm-3 col-form-label">Date</label>
+                                            <div class="col-sm-8">
+                                                <input type="date" id="date" name="date">
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="product_code"  placeholder="Product Code">
+                                        <div class="form-group row">
+                                            <label for="name" class="col-sm-3 col-form-label">Name</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="name" placeholder="Name">
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="particular" placeholder="Particular">
+                                        <div class="form-group row">
+                                            <label for="code" class="col-sm-3 col-form-label">Product Code</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="product_code"  placeholder="Product Code">
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="category" placeholder="Category">
+                                        <div class="form-group row">
+                                            <label for="particular" class="col-sm-3 col-form-label">Product Particular</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="particular" placeholder="Particular">
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="quantity" placeholder="Quantity">
+                                        <div class="form-group row">
+                                            <label for="category" class="col-sm-3 col-form-label">Category</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="category" placeholder="Category">
+                                            </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group row">
+                                            <label for="quantity" class="col-sm-3 col-form-label">Quantity</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" value="" name="quantity" id="quantity" onclick="getTotal()" placeholder="Quantity">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="price" class="col-sm-3 col-form-label">Product Price</label>
                                             <div class="input-group-prepend col-1">
                                                 <span class="input-group-text">	৳</span>
                                             </div>
-                                            <input type="text" class="form-control col-10" name="product_price"  placeholder="Purchase Price">
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control col-10" value="" name="product_price" id="price" onclick="getTotal()" placeholder="Purchase Price">
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="vendor">Choose a Vendor:</label>
+                                        <div class="form-group row">
+                                            <label for="total" class="col-sm-3 col-form-label">Total Price</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" value="null" name="total" id="total" onclick="getTotal()" placeholder="Total Price">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="vendor" class="col-sm-3 col-form-label">Choose a Vendor:</label>
+                                            <div class="col-sm-8">
                                             <select name="vendor_id" >
                                             @foreach($vendors as $v)
                                                 <option value="{{$v->id}}">{{$v->name}}</option>
                                             @endforeach
                                             </select>
+                                            </div>
                                         
                                         </div>
                                         <div class="form-group">
@@ -77,6 +109,7 @@
                                         <tr>
                                             <th>Name</th>
                                             <th>Product Code</th>
+                                            <th>Price</th>
                                             <th>Stock</th>
                                         </tr>
                                     </thead> 
@@ -85,12 +118,16 @@
                                             <tr>
                                                 <td>{{$p->name}}</td>
                                                 <td>{{$p->product_code}}</td>
+                                                <td>{{$p->product_price}}</td>
 
                                                 @php
                                                     $qty = $sales->where('s_product_code',$p->product_code)->sum('s_quantity');
+                                                    $dmg=0;
+                                                    $dmg = $damages->where('product_code',$p->product_code)->sum('quantity');
                                                 @endphp
+                     
                                                 <!-- <td>{{$qty}}</td> -->
-                                                <td>{{$p->quantity - $qty}}</td>
+                                                <td>{{$p->quantity - $qty-$dmg}}</td>
                                             </tr>
                                             @endforeach
                                     </tbody>
@@ -102,4 +139,6 @@
             </div>
         </div>
     </div>
+
+    
 @endsection
