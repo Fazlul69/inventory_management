@@ -5,11 +5,11 @@
         <h4 class="fa">Edit Stored Product</h4>
         <div class="divider">
             <div class="row">
-                <div class="col-11">
+                <div class="col-6">
                     <div class="card" style="margin-top:25px">
                         <div class="card-body">
                             <div class="row" >
-                                <div class="col-8">
+                                <div class="col-10">
                                     @if(Session::has('success'))
                                         <div class="alert alert-success">{{Session::get('success')}}</div>
                                     @endif
@@ -40,7 +40,7 @@
                                             <div class="input-group-prepend col-1">
                                                 <span class="input-group-text">	৳</span>
                                             </div>
-                                            <input type="text" class="form-control col-11" value="{{$purchase->product_price}}" name="product_price"  placeholder=" Price">
+                                            <input type="text" class="form-control col-10 p" value="{{$purchase->product_price}}" name="product_price"  placeholder=" Price">
                                         </div>
                                         <div class="form-group">
                                             <input type="text" class="form-control" value="{{$purchase->quantity}}" name="quantity" placeholder="Quantity">

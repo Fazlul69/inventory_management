@@ -52,6 +52,7 @@ Route::post('home/damage/create','App\Http\Controllers\DamageController@store')-
 Route::get('damage/edit/{id}','App\Http\Controllers\DamageController@edit')->name('damage.edit');
 Route::post('damage/update/{id}','App\Http\Controllers\DamageController@update')->name('damage.update');
 Route::delete('damage/delete/{id}','App\Http\Controllers\DamageController@delete')->name('damage.delete');
+Route::get('home/damage/search','App\Http\Controllers\DamageController@search')->name('damage.search');
 //Dashboard
 Route::get('home/dashboard','App\Http\Controllers\AccountingController@index')->name('dashboard.index');
 
@@ -59,3 +60,4 @@ Route::get('home/dashboard','App\Http\Controllers\AccountingController@index')->
 Route::get('barcode','App\Http\Controllers\BarcodeController@index')->name('bar.index');
 Route::get('home/barcode/create','App\Http\Controllers\BarcodeController@create')->name('bar.create');
 Route::post('home/barcode/create','App\Http\Controllers\BarcodeController@store')->name('bar.store');
+Route::get('barcode/search','App\Http\Controllers\BarcodeController@search')->name('bar.search');

@@ -60,13 +60,13 @@ class DamageController extends Controller
             return redirect(route('damage.index'));
         }
     
-    // public function search(Request $request){
-    //         $search_text = $_GET['query'];
-    //         $purchases = Purchase::where('product_code','LIKE','%'.$search_text.'%')
-    //                                 ->orWhere('name','LIKE','%'.$search_text.'%')
-    //                                 ->paginate(15);
-    //         return view('damage_pages.index')->with('damage',$damage);
-    // }
+    public function search(Request $request){
+            $search_text = $_GET['query'];
+            $damage = Damage::where('product_code','LIKE','%'.$search_text.'%')
+                                    ->orWhere('name','LIKE','%'.$search_text.'%')
+                                    ->paginate(15);
+            return view('damage_pages.index')->with('damage',$damage);
+    }
 
 
     public function edit($id)

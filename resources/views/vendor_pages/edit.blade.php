@@ -4,10 +4,12 @@
 @section('content')
 <div class="container">
         <h4 class="f">Edit Vendor</h4>
-        <div class="card" style="margin-top:25px">
+        <div class="row">
+            <div class="col-6">
+            <div class="card" style="margin-top:25px">
             <div class="card-body">
                 <div class="row" >
-                    <div class="col-8">
+                    <div class="col-10">
                         @if(Session::has('success'))
                             <div class="alert alert-success">{{Session::get('success')}}</div>
                         @endif
@@ -40,6 +42,8 @@
                         </form>
                     </div>
                 </div>
+            </div>
+        </div>
             </div>
         </div>
     </div>

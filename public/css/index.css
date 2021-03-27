@@ -245,3 +245,10 @@ label:not(.form-check-label):not(.custom-file-label) {
   padding: 40px 5px 5px 5px;
   text-align: center;
 }
+.details {
+  margin-top: 10px;
+}
+.form-control.col-10.p {
+  margin-left: 65px;
+  margin-top: -38px;
+}

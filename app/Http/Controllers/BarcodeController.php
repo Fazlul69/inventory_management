@@ -49,4 +49,13 @@ class BarcodeController extends Controller
         
         return redirect(route('bar.create'));
     }
+
+    public function search(Request $request){
+        $search_text = $_GET['query'];
+        $barcodes = Barcode::where('product_code','LIKE','%'.$search_text.'%')
+                                ->orWhere('product_name','LIKE','%'.$search_text.'%')
+                                ->orWhere('category','LIKE','%'.$search_text.'%')
+                                ->paginate(15);
+        return view('barcode.index')->with('barcodes',$barcodes);
+}
 }
