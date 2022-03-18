@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Customer;
 
 class CustomerController extends Controller
 {
@@ -13,7 +14,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        $customers = Customer::all();
+        return view('pos_part.customer')->with('customers',$customers);
     }
 
     /**
@@ -34,7 +36,32 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required',
+            'email' => 'required',
+            'mobile' => 'required',
+            'company_name' => 'required',
+            'balance' => 'required',
+            'credit_limit'=> 'nullable',
+            'address' => 'required',
+            'comments' => 'nullable',
+            'unpaid' => 'required',
+        ]);
+        $customers = new Customer;
+        $customers = Customer::where([
+            ['name', '=',$request->name],
+            ['email', '=',$request->email],
+            ['mobile', '=',$request->mobile],
+            ['company_name', '=',$request->company_name],
+            ['balance', '=',$request->balance],
+            ['credit_limit', '=',$request->credit_limit],
+            ['address', '=',$request->address],
+            ['comments', '=',$request->comments],
+            ['unpaid', '=',$request->unpaid],
+         ]);
+        
+        Customer::create($request->all());
+        return redirect(route('cus.index'));
     }
 
     /**

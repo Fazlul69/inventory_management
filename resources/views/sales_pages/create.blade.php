@@ -5,7 +5,7 @@
         <h4 class="fa">Add New Product Out</h4>
         <div class="divider">
             <div class="row">
-                <div class="col-6">
+                <div class="col-sm-12 col-md-6">
                     <div class="card" style="margin-top:25px">
                         <div class="card-body">
                             <div class="row" >
@@ -34,13 +34,13 @@
                                         <div class="form-group row">
                                             <label for="name" class="col-sm-3 col-form-label">Product Name</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="s_product_name" placeholder="Name">
+                                                <input type="text" class="form-control" name="s_product_name" placeholder="Name" required="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="code" class="col-sm-3 col-form-label">Product Code</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="s_product_code"  placeholder="Product Code">
+                                                <input type="text" class="form-control" name="s_product_code"  placeholder="Product Code" required="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -67,7 +67,7 @@
                                         <div class="form-group row">
                                             <label for="quantity" class="col-sm-3 col-form-label">Quantity</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="s_quantity" id="quantity" placeholder="Quantity">
+                                                <input type="text" class="form-control" name="s_quantity" id="quantity" placeholder="Quantity" required="">
                                             </div>    
                                         </div>
                                         <div class="form-group row">
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-sm-12 col-md-6">
                     <form class="form-inline" action="{{route('sales.create')}}" method="get">
                         <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

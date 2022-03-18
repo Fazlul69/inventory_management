@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Session;
 use App\Models\Sale;
@@ -57,7 +58,7 @@ class SalesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
+        $validator = Validator::make($request->all(), [
             's_product_name' => 'required',
             's_product_code' => 'required',
             's_product_particular' => 'nullable',
@@ -74,7 +75,8 @@ class SalesController extends Controller
         // }else{
         //     Sale::create($request->all());
         // }
-        $sales =Sale::create($request->all());
+        // $sales =Sale::create($request->all());
+        Session::flash('success','Data insert successfully');
         return redirect(route('sales_pages.index'));
     }
 

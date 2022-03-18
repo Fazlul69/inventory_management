@@ -6,7 +6,7 @@
         <h4 class="f">Add New Purchase</h4>
         <div class="divider">
             <div class="row">
-                <div class="col-6">
+                <div class="col-sm-12 col-md-6">
                     <div class="card" style="margin-top:25px">
                         <div class="card-body">
                             <div class="row" >
@@ -96,7 +96,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-sm-12 col-md-6">
                     <form class="form-inline" action="{{route('purchase.create')}}" method="get">
                         <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

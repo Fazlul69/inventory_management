@@ -5,7 +5,7 @@
         <h4 class="fa">Edit Damage</h4>
         <div class="divider">
             <div class="row">
-                <div class="col-6">
+                <div class="col-sm-6 col-md-6">
                     <div class="card" style="margin-top:25px">
                         <div class="card-body">
                             <div class="row" >

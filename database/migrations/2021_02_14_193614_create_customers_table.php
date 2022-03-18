@@ -18,6 +18,11 @@ class CreateCustomersTable extends Migration
             $table->String('name');
             $table->String('email');
             $table->String('mobile');
+            $table->String('company_name');
+            $table->double('balance');
+            $table->double('credit_limit')->nullable();
+            $table->String('address');
+            $table->String('comments')->nullable();
             $table->double('unpaid');
             $table->timestamps();
         });

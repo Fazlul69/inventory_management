@@ -5,12 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-6 loging">
             <div class="row">
-                <div class="col-6">
+                <div class="col-sm-6">
                     <div class="sinin-image">
                         <figure><img src="{{asset('images/signin-image.jpg')}}" alt=""></figure>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-sm-6 col-md-6">
                     <div class="sinin-form">
                         <!-- <div class="card-header">{{ __('Login') }}</div> -->
                         @if(session()->has('error'))
@@ -25,7 +25,7 @@
                                 <div class="form-group row">
                                     <!-- <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label> -->
 
-                                    <div class="col-md-12">
+                                    <div class="col-sm-6 col-md-12">
                                         <input id="email" type="email" placeholder="Email Address" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                         @error('email')

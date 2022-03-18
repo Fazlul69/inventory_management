@@ -22,6 +22,7 @@ class ItemController extends Controller
         $purchases=Purchase::all();
         $sales = Sale::all();
         $damages = Damage::all();
+        // dd($damages);
         $purchases = DB::table('purchases')->paginate(15);
         return view('item_pages.index')->with('purchases',$purchases)->with('sales',$sales)->with('damages',$damages);
     }
@@ -41,11 +42,18 @@ class ItemController extends Controller
         $search_text = $_GET['query'];
         $purchases = Purchase::where('product_code','LIKE','%'.$search_text.'%')
                     ->orWhere('name','LIKE','%'.$search_text.'%')
+                    ->orWhere('category','LIKE','%'.$search_text.'%')
                     ->paginate(15);
         $sales = Sale::where('s_product_code','LIKE','%'.$search_text.'%')
-        ->orWhere('s_product_name','LIKE','%'.$search_text.'%')->get();
+        ->orWhere('s_product_name','LIKE','%'.$search_text.'%')
+        ->orWhere('s_product_category','LIKE','%'.$search_text.'%')
+        ->get();
+        $damages = Damage::where('product_code','LIKE','%'.$search_text.'%')
+                    ->orWhere('name','LIKE','%'.$search_text.'%')
+                    ->orWhere('category','LIKE','%'.$search_text.'%')
+                    ->get();
 
-        return view('item_pages.index')->with('purchases',$purchases)->with('sales',$sales);
+        return view('item_pages.index')->with('purchases',$purchases)->with('sales',$sales)->with('damages',$damages);
     }
 
     /**

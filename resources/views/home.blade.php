@@ -19,8 +19,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/index.css')}}">
     <link rel="stylesheet" href="{{asset('css/home.css')}}" >
-    <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
-    <!-- <link  href="{{asset('js/mul.js')}}" > -->
 
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Ionicons -->
@@ -44,7 +42,7 @@
 <body>
 @if(isset(Auth::user()->email))
     <div class="wrapper">
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4 sidepanel" id="mySidepanel">
             @include('layouts.left_container')
         </aside>
         <div class="content-wrapper">
@@ -52,7 +50,7 @@
                 <!-- <div class="div"><p>Shah Amanat Light House</p></div> -->
                 <!-- Image and text -->
               <nav class="navbar navbar-light bg-light up_design" style="background-color: #87c6d9c2 !important">
-                
+                  <button class="openbtn" onclick="openNav()">☰</button> 
                   <!-- <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt=""> -->
                   <h3 class="tit">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ </h3>
                
@@ -90,6 +88,7 @@
      -->
 
     <!-- jQuery -->
+    <script src="{{asset('js/coll.js')}}"></script>
     <script src="{{asset('js/mul.js')}}"></script>
     <script src="{{asset('js/print.js')}}"></script>
     <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>

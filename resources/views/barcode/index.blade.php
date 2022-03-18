@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/index.css')}}">
-    <title>Barcode</title>
+    <title>ShahAmanatLightHouse</title>
     <style>
       p {margin-top: 0;margin-bottom: 0rem;font-size: 10px;}   
       .category {margin-bottom: 10px;}

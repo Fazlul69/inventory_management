@@ -14,6 +14,7 @@ class DamageController extends Controller
 {
     public function index()
     {
+        
         $damage=Damage::all();
         // $damage = Damage::with('vendor')->paginate(15);
         return view('damage_pages.index')->with('damage',$damage);
@@ -58,7 +59,7 @@ class DamageController extends Controller
             }
             // $purchases = Purchase::create($request->all());
             return redirect(route('damage.index'));
-        }
+    }
     
     public function search(Request $request){
             $search_text = $_GET['query'];

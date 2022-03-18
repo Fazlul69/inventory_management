@@ -71,7 +71,7 @@ class PurchaseController extends Controller
         $search_text = $_GET['query'];
         $purchases = Purchase::where('product_code','LIKE','%'.$search_text.'%')
                                 ->orWhere('name','LIKE','%'.$search_text.'%')
-                                ->paginate(15);
+                                ->paginate(120);
         return view('purchase_pages.index')->with('purchases',$purchases);
     }
 

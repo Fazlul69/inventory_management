@@ -61,3 +61,8 @@ Route::get('barcode','App\Http\Controllers\BarcodeController@index')->name('bar.
 Route::get('home/barcode/create','App\Http\Controllers\BarcodeController@create')->name('bar.create');
 Route::post('home/barcode/create','App\Http\Controllers\BarcodeController@store')->name('bar.store');
 Route::get('barcode/search','App\Http\Controllers\BarcodeController@search')->name('bar.search');
+
+// Customer
+Route::get('customer','App\Http\Controllers\CustomerController@index')->name('cus.index');
+Route::post('customer','App\Http\Controllers\CustomerController@store')->name('cus.store');
+// Route::post('customer','App\Http\Controllers\CustomerController@update')->name('cus.update');
